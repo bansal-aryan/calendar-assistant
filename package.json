@@ -1,0 +1,30 @@
+{
+  "name": "test-project",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx --env-file=.env src/index.ts",
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "start:production": "node --import tsx src/index.ts",
+    "authorize": "node --env-file=.env --import tsx src/authorize.ts",
+    "preview": "node --env-file=.env --import tsx src/index.ts --dry-run",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "heroku-postbuild": "npm run typecheck"
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "^0.5.1",
+    "pg": "^8.23.1",
+    "spectrum-ts": "^12.11.0",
+    "tsx": "^4.23.15"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/pg": "^8.23.1",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
